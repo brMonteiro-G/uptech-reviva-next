@@ -1,9 +1,9 @@
 {
   "compilerOptions": {
-    "baseUrl": "pages",
+    "baseUrl": "src",
     "paths": {
       "components": [
-        "/pages/components"
+        "components"
       ],
       "utils": [
         "utils"
@@ -35,8 +35,8 @@
     "incremental": true
   },
   "include": [
-    "pages"
-  ],
+    "src"
+, "src/state", "src/utils", "src/data", "src/cart", "src/details", "src/home", "src/components"  ],
   "exclude": [
     "node_modules"
   ]
