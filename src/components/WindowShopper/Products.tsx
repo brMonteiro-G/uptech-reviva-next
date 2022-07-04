@@ -12,6 +12,7 @@ import {
   ProductPrice,
 } from './ProductsStyle';
 import { StorageContext } from 'state/contexts/StorageContext';
+import { useTheme } from 'styled-components';
 
 export interface Items {
   name: string;
@@ -33,6 +34,7 @@ export interface Props {
 
 export default function Products(props: Props) {
   const { products, setProducts } = useContext(StorageContext);
+  //const {color} = useTheme()
  
   function template(element: Items, index: number): ReactElement {
     return (
@@ -51,7 +53,7 @@ export default function Products(props: Props) {
             <ProductPrice>R$ {element.price.toFixed(2)} </ProductPrice>
           </ProductInfo>
 
-          <Button id={element.id} />
+          <Button  id={element.id} />
         </ProductContent>
       </BoxModel>
     );

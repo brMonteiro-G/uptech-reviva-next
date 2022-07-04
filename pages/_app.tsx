@@ -1,11 +1,11 @@
 import { Footer } from 'components/Footer/Footer';
 import { Header } from 'components/Header/Header';
-import { SearchBar } from 'components/Header/SearchBar/SearchBar';
 import { createGlobalStyle, ThemeProvider } from 'styled-components';
 import Head from 'next/head'; 
 import { AppProps } from 'next/app';
 import { NextPage } from 'next';
 import { ReactElement, ReactNode } from 'react';
+import { SearchBar } from 'components/Header/SearchBar/SearchBar';
 
 const GlobalStyle = createGlobalStyle`
 body{
@@ -25,7 +25,7 @@ body{
 
 `;
 
-const theme = {
+export const theme = {
   colors: {
     primary_color: '#FFEF82',
 
@@ -40,7 +40,7 @@ const theme = {
     font_size_text: '1em',
 
     font_size_title: '3em',
-
+ 
     font_size_subtitle: '4em',
 
     font_family_page: "'Roboto', sans serif",
@@ -72,7 +72,7 @@ function MyApp({ Component, pageProps }:AppPropsWithLayout) {
         <Head >
           <>
           <link rel="shortchut icon" href="/" />
-          <title>Reviva Fashion</title>
+          <title>Reviva Fashion</title> 
           </>
           
         </Head>

@@ -1,5 +1,4 @@
 import styled from 'styled-components';
-import { tertiary_color } from 'utils/Variables';
 
 export const Buttonconfig = styled.div`
   content: '';
@@ -15,7 +14,7 @@ export const ButtonSizeNonChecked = styled(Buttonconfig)`
   input + label:before {
     border: none;
     cursor: pointer;
-    border: 2px solid ${tertiary_color};
+    border: 2px solid ${(props)=> props.theme.colors.tertiary_color};
     background: url('public//images/p.png') no-repeat center;
     background-size: contain;
   }
@@ -23,7 +22,7 @@ export const ButtonSizeNonChecked = styled(Buttonconfig)`
 
 export const ButtonSizeChecked = styled(ButtonSizeNonChecked)`
   input:checked + label:before {
-    background-color: rgba(${tertiary_color}, 0.5);
+    background-color: rgba(${(props)=> props.theme.colors.tertiary_color}, 0.5);
     transform: scale(1.1);
     transition: all 0.5s;
   }

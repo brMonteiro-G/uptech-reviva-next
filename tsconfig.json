@@ -2,14 +2,14 @@
   "compilerOptions": {
     "baseUrl": "src",
     "paths": {
-      "components": [
-        "components"
+      "@/components/*": [
+        "components/*"
       ],
-      "utils": [
-        "utils"
+      "@/utils/*": [
+        "utils/"
       ],
-      "state": [
-        "state"
+      "@/state/*": [
+        "state/"
       ],
       
     },
@@ -35,8 +35,10 @@
     "incremental": true
   },
   "include": [
-    "src"
-, "src/state", "src/utils", "src/data", "src/cart", "src/details", "src/home", "src/components"  ],
+    "src",
+    "next-env.d.ts",
+    "**/*.ts",
+    "**/*.tsx"],
   "exclude": [
     "node_modules"
   ]

@@ -1,5 +1,4 @@
 import styled from 'styled-components';
-import { tertiary_color } from 'utils/Variables';
 
 export const DivBackgroundBag = styled.div`
   display: grid;
@@ -26,7 +25,7 @@ export const DivBackgroundBag = styled.div`
 `;
 
 export const CartButton = styled.button`
-  background-color: ${tertiary_color};
+  background-color: ${(props)=>props.theme.colors.tertiary_color};
   border: none;
   font-size: 15px;
   color: white;
@@ -40,7 +39,7 @@ export const CartButton = styled.button`
 export const ShoppingCartButton = styled.button`
   background-image: url(\'/images/shopping-bag.png\');
   border:none;
-  background-color:${tertiary_color};
+  background-color:${(props)=>props.theme.colors.tertiary_color};
   background-repeat: no-repeat;
   background-position: 50% 50%;
 `;

@@ -7,16 +7,20 @@ import {
   DetailsImage,
   RecomendationsSection,
   RecomendationsVisualize,
-  RecomendationsProducts,
 } from './DetailsStyle';
 
 import { useContext, useEffect, useState } from 'react';
-import { StorageContext } from 'state/contexts/StorageContext';
 import { useRouter } from 'next/router';
 import { useFindProduct } from 'state/hooks/useFindProduct';
+import { SelectSizeButton } from '@/components/SelectSizeButton/SelectSizeButton';
+import { CartButtonDetails, DivButtonsDetails } from '@/components/Button/ButtonStyle';
+import { Banner } from '@/components/Banner/Banner';
+import Recomendations from '@/components/Recomendations';
+import { ThemedStyledProps } from 'styled-components';
 
-function DetailsProduct({...props}) {
- 
+function DetailsProduct(props: any) {
+console.log(props);
+
   const router = useRouter();
   const { id } = router.query;
 

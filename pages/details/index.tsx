@@ -1,11 +1,12 @@
-import { useRouter } from "next/router";
+import {useTheme } from 'styled-components'
 import DetailsProduct from "./[id]";
 
 export default function Details(){
 //tentar colocar query params 
+const theme = useTheme();
   
 return(
 
-    <DetailsProduct > </DetailsProduct>
+    <DetailsProduct theme={{...theme}}> </DetailsProduct>
 )
 }

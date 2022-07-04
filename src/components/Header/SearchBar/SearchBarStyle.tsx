@@ -1,5 +1,4 @@
 import styled from 'styled-components';
-import { tertiary_color } from 'utils/Variables';
 
 export const SearchBarTemplate = styled.fieldset`
   display: flex;
@@ -15,7 +14,7 @@ export const SearchBarTemplate = styled.fieldset`
 
 export const SearchBarButton = styled.button`
   background-image: url(\'/images/search.png\');
-  background-color: ${tertiary_color};
+  background-color:${(props)=>props.theme.colors.tertiary_color};
   background-repeat: no-repeat;
   background-position: 50% 50%;
   height: 55px;

@@ -1,13 +1,12 @@
 import styled from 'styled-components';
-import { quaternary_color, tertiary_color } from 'utils/Variables';
 
 export const BannerTemplate = styled.div`
   display: grid;
   grid-template-rows: 1fr 1fr;
   background: linear-gradient(
     to bottom,
-    ${quaternary_color},
-    ${tertiary_color}
+    ${(props)=> props.theme.colors.quaternary_color},
+    ${(props)=> props.theme.colors.tertiary_color}
   );
   height: 19em;
   width: 100%;

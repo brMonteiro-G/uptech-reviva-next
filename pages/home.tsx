@@ -2,8 +2,6 @@
 import { Banner } from 'components/Banner/Banner';
 import Products from 'components/WindowShopper/Products';
 import { GridProducts } from 'components/WindowShopper/ProductsStyle';
-import { NextPageWithLayout } from '_app';
-import { ReactElement } from 'react';
 import { Subtitle, ArticleSection, Main } from 'home/HomeStyle';
 import { Posts } from 'home/Posts/Posts';
 

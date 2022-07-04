@@ -1,13 +1,12 @@
 import styled from 'styled-components';
-import { font_weight_text, quaternary_color, tertiary_color } from 'utils/Variables';
 
 export const FooterTemplate = styled.footer`
-  background-color: ${quaternary_color};
+  background-color:${(props)=>props.theme.colors.quaternary_color};
 
   li {
     margin-top: 12px;
     font-size: calc($font-size-text * 1.1);
-    font-weight: ${font_weight_text};
+    font-weight: ${(props)=>props.theme.fonts.font_weight_text};
   }
 `; 
 
@@ -56,7 +55,7 @@ export const FooterNewsletter = styled(FooterInfos)`
   button {
     width: 160px;
     height: 38px;
-    background-color: ${tertiary_color};
+    background-color:${(props)=>props.theme.colors.quaternary_color};
     border: none;
   }
   button:hover {
@@ -69,7 +68,7 @@ export const FooterIems = styled(FooterInfos)`
   button {
     width: 160px;
     height: 38px;
-    background-color: ${tertiary_color};
+    background-color:${(props)=>props.theme.colors.quaternary_color};
     border: none;
   }
 

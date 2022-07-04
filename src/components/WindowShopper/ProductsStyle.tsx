@@ -1,5 +1,4 @@
 import styled from 'styled-components';
-import { font_size_text } from 'utils/Variables';
 
 export const GridProducts = styled.section`
   display: grid;
@@ -13,7 +12,7 @@ export const GridProducts = styled.section`
   }
   @media (max-width: 1200px) {
     grid-template-columns: repeat(1, 2fr);
-  }
+  } 
 `;
 
 export const DivImageButtons = styled.div`
@@ -47,7 +46,7 @@ export const ImageProducts = styled.img`
 
 export const ProductInfo = styled.div`
   font-weight: 400;
-  font-size: calc(${font_size_text} / 0.9);
+  font-size: calc(${(props)=> props.theme.fonts.font_size_text} / 0.9);
   margin: 0 auto;
   @media (max-width: 1200px) {
     font-size: 3vw;

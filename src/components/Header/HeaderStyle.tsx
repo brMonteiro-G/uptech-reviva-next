@@ -1,11 +1,9 @@
-import Link from 'next/link';
 import styled from 'styled-components';
-import { quaternary_color } from 'utils/Variables';
 
 export const HeaderTemplate = styled.div`
   display: flex;
   justify-content: space-between;
-  background-color: ${quaternary_color};
+  background-color: ${(props)=>props.theme.colors.quaternary_color};
   align-items: center;
   box-sizing: border-box;
   padding: 2%;

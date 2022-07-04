@@ -1,11 +1,6 @@
 import Link from 'next/link';
 import styled from 'styled-components';
-import {
-  font_size_text,
-  font_size_title,
-  font_weight_text,
-  font_weight_title,
-} from 'utils/Variables';
+
 
 export const LogoTemplate = styled.div`
  cursor:pointer;
@@ -17,8 +12,9 @@ export const LogoTemplate = styled.div`
   
   p,
   h1 {
-    font-size: ${font_size_title};
-    font-weight: ${font_weight_title};
+    font-size: ${(props)=> props.theme.fonts.font_size_title};
+    
+    font-weight: ${(props)=> props.theme.fonts.font_weight_title};
   }
 `;
 
@@ -29,8 +25,8 @@ export const FooterLogo = styled(LogoTemplate)`
 `;
 
 export const BannerLogo = styled(LogoTemplate)`
-  font-size: ${font_size_text};
-  font-weight: ${font_weight_text};
+  font-size: ${(props)=> props.theme.fonts.font_size_text};
+  font-weight: ${(props)=> props.theme.fonts.font_weight_text};
   padding-bottom: 1em;
 `;
 

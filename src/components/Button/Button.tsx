@@ -9,12 +9,14 @@ import { useAddCart } from 'state/hooks/useAddCart';
 import { useUpdateStorage } from 'state/hooks/useUpdateStorage';
 import { StorageContext } from 'state/contexts/StorageContext';
 import { CartContext, CartProducts } from 'state/contexts/CartContext';
+import { ThemedStyledProps } from 'styled-components';
 
-export interface Id {
+export interface Props {
   id: string;
 }
 
-export function Button(props: Id) {
+
+export function Button({id}:Props) {
   const updateStorage = useUpdateStorage();
   const addProductInCart = useAddCart();
   const { products, setProducts } = useContext(StorageContext);
@@ -39,7 +41,7 @@ export function Button(props: Id) {
       <CartButton
         onClick={() => {
           const element = products && products.find((item) => {
-            return item.id === props.id;
+            return item.id === id;
           });
 
           verifyQuantity(element!);
