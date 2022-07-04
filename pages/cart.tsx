@@ -1,5 +1,5 @@
 import Head from 'next/head';
-import { ProductReview } from './cart/ProductReview/ProductReview';
+import { ProductReview } from '../src/cart/ProductReview/ProductReview';
 
 function Cart() {
   return (
