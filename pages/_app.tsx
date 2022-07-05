@@ -30,7 +30,7 @@ export const theme = {
     primary_color: '#FFEF82',
 
     secondary_color: '#EFD345',
-
+ 
     tertiary_color: '#BABD42',
 
     quaternary_color: '#82954B',

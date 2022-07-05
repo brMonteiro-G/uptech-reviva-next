@@ -13,54 +13,49 @@ import { useContext, useEffect, useState } from 'react';
 import { useRouter } from 'next/router';
 import { useFindProduct } from 'state/hooks/useFindProduct';
 import { SelectSizeButton } from '@/components/SelectSizeButton/SelectSizeButton';
-import { CartButtonDetails, DivButtonsDetails } from '@/components/Button/ButtonStyle';
+import {
+  CartButtonDetails,
+  DivButtonsDetails,
+} from '@/components/Button/ButtonStyle';
 import { Banner } from '@/components/Banner/Banner';
 import Recomendations from '@/components/Recomendations';
-import { ThemedStyledProps } from 'styled-components';
+import { Items } from '@/components/WindowShopper/Products';
+import { GetServerSideProps, InferGetServerSidePropsType, InferGetStaticPropsType } from 'next';
 
-function DetailsProduct(props: any) {
-console.log(props);
-
-  const router = useRouter();
-  const { id } = router.query;
-
-  useEffect(() => {
-    if (router.asPath !== router.route) {
-    }
-  }, [router])
-
-  const product = useFindProduct(id!);
-
-
-
+function DetailsProduct({ response }: InferGetServerSidePropsType<typeof getServerSideProps>) {
+  const [clickedProduct, setClickedProduct] = useState<Items>(response);  
+  
   return (
-   
-    
     <>
       <DetailsSection>
         <div>
           <DetailsImage
-            src={product!.images[0].url}
-            alt={product!.images[0].description}
+            src={clickedProduct!.images[0].url}
+            alt={clickedProduct!.images[0].description}
           />
         </div>
         <DetailsInfo>
           <h1>
-            {product!.name} R$ {product!.price.toFixed(2)!}
+            {clickedProduct!.name} R$ {clickedProduct!.price!}
           </h1>
-          <p>{product!.description}</p>
+          <p>{clickedProduct!.description}</p>
 
           <DetailsGrid>
             <>
-              {product!.images.map((image) => {
-                return (
-                  <DetailsVisualize
-                    key={product!.id}
-                    src={image.url}
-                    alt={image.description}
-                  />
-                );
-              })}
+              {clickedProduct!.images.map(
+                (image: {
+                  url: string | undefined;
+                  description: string | undefined;
+                }) => {
+                  return (
+                    <DetailsVisualize
+                      key={clickedProduct!.id}
+                      src={image.url}
+                      alt={image.description}
+                    />
+                  );
+                }
+              )}
               <SelectSizeButton />
               <DivButtonsDetails>
                 <CartButtonDetails>POR NA SACOLA</CartButtonDetails>
@@ -75,12 +70,37 @@ console.log(props);
       <RecomendationsSection>
         <h2>Recomendações</h2>
         <RecomendationsVisualize>
-          <Recomendations/>
+          <Recomendations />
         </RecomendationsVisualize>
       </RecomendationsSection>
     </>
   );
 }
 
-export default DetailsProduct;
+export const getServerSideProps = async (context: { params: { id: any; }; }) => {
+  const {id} = context.params
+  if (!id) {
+    return;
+  }
+  const response: any = await 
+    fetch(`http://localhost:3000/api/getProductById/${id}`, {
+      method: 'GET',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+    }).then((respostaDoServidor)=>{
+      return respostaDoServidor.json()
+    }
+    )
+    
+    console.log(response)
 
+  return {
+    
+    props: {
+      response,
+    },
+  };
+}
+
+export default DetailsProduct;

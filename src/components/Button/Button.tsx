@@ -12,7 +12,7 @@ import { CartContext, CartProducts } from 'state/contexts/CartContext';
 import { ThemedStyledProps } from 'styled-components';
 
 export interface Props {
-  id: string;
+  id?: string;
 }
 
 

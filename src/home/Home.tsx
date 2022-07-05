@@ -3,8 +3,6 @@ import { ArticleSection, Main, Subtitle } from './HomeStyle';
 import { Banner } from 'components/Banner/Banner';
 import Products from 'components/WindowShopper/Products';
 import { GridProducts } from 'components/WindowShopper/ProductsStyle';
-import { NextPageWithLayout } from '_app';
-import { ReactElement } from 'react';
 
 export default function Home() {  
 

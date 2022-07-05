@@ -1,7 +1,8 @@
 import { ReactElement, useContext, useEffect } from 'react';
-import {useRouter} from 'next/router';
 import { Button } from '../Button/Button';
 import Link from 'next/link';
+import data from '../../../data.json';
+// const axios = require('axios');
 import {
   BoxModel,
   DivImageButtons,
@@ -12,7 +13,7 @@ import {
   ProductPrice,
 } from './ProductsStyle';
 import { StorageContext } from 'state/contexts/StorageContext';
-import { useTheme } from 'styled-components';
+import { GetStaticProps } from 'next';
 
 export interface Items {
   name: string;
@@ -32,9 +33,18 @@ export interface Props {
   texto: string; 
 }
 
+// export const getStaticProps:GetStaticProps= async (context)=>{
+//   axios.get('/api/getAllProducts')
+//   .then()
+//   return {
+//     props: data
+//   }
+// }
+
+
+
 export default function Products(props: Props) {
   const { products, setProducts } = useContext(StorageContext);
-  //const {color} = useTheme()
  
   function template(element: Items, index: number): ReactElement {
     return (
