@@ -3,16 +3,16 @@ import Inventory from 'data/Storage';
 import { useState } from 'react';
 
 
-export const useStorage = () => {
+export const useStorage = (handledProductsResponse:Items[]) => {
   const [products, _] = useState<Items[]>(
-    Inventory.available_products_in_inventory
+    handledProductsResponse
   );
   return products;
 };
 
 export const useSetStorage = () => {
   const [_, setProducts] = useState<Items[]>(
-    Inventory.available_products_in_inventory
+   []
   );
   return setProducts;
 };

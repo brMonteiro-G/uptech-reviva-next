@@ -1,8 +1,6 @@
-import { ReactElement, useContext, useEffect } from 'react';
-import { Button } from '../Button/Button';
+import { ReactElement, useContext, useState } from 'react';
+import { Button, ButtonProps } from '../Button/Button';
 import Link from 'next/link';
-import data from '../../../data.json';
-// const axios = require('axios');
 import {
   BoxModel,
   DivImageButtons,
@@ -13,7 +11,9 @@ import {
   ProductPrice,
 } from './ProductsStyle';
 import { StorageContext } from 'state/contexts/StorageContext';
-import { GetStaticProps } from 'next';
+import { CartProducts } from 'state/contexts/CartContext';
+import { useAddCart } from 'state/hooks/useAddCart';
+import { useUpdateStorage } from 'state/hooks/useUpdateStorage';
 
 export interface Items {
   name: string;
@@ -30,22 +30,32 @@ export interface Images {
   description: string;
 }
 export interface Props {
-  texto: string; 
+  texto: string;
 }
 
-// export const getStaticProps:GetStaticProps= async (context)=>{
-//   axios.get('/api/getAllProducts')
-//   .then()
-//   return {
-//     props: data
-//   }
-// }
-
-
-
-export default function Products(props: Props) {
+export default function Products({ texto }: Props) {
   const { products, setProducts } = useContext(StorageContext);
- 
+
+  const updateStorage = useUpdateStorage();
+  const addProductInCart = useAddCart();
+
+  function verifyQuantity(element : Items): void {
+    if (element.available_amount - 1 < 0) {
+      return alert('Produto esgotado');
+    }
+    
+    const updateProduct: CartProducts = {
+      ...element,
+      units_in_cart: 0,
+    };
+    console.log(updateProduct);
+
+    addProductInCart(updateProduct);
+    updateStorage(updateProduct);
+
+    alert('Produto adicionado ao carrinho');
+  }
+
   function template(element: Items, index: number): ReactElement {
     return (
       <BoxModel key={element.name} data-id={index}>
@@ -63,27 +73,26 @@ export default function Products(props: Props) {
             <ProductPrice>R$ {element.price.toFixed(2)} </ProductPrice>
           </ProductInfo>
 
-          <Button  id={element.id} />
+          <Button element={element} onClick={() => verifyQuantity(element)} />
         </ProductContent>
       </BoxModel>
     );
   }
   return (
     <>
-      {products && products.map((element, index) => {
-      
-        
-        if (props.texto.includes('1')) {
-          if (index <= 3) {
-            return template(element, index);
+      {products &&
+        products.map((element: Items, index: number) => {
+          if (texto.includes('1')) {
+            if (index <= 3) {
+              return template(element, index);
+            }
           }
-        }
-        if (props.texto.includes('2')) {
-          if (index >= 4) {
-            return template(element, index);
+          if (texto.includes('2')) {
+            if (index >= 4) {
+              return template(element, index);
+            }
           }
-        }
-      })}
+        })}
     </>
   );
 }

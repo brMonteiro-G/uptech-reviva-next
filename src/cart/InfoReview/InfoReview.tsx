@@ -1,4 +1,4 @@
-import { CartContext } from 'state/contexts/CartContext';
+import { CartContext, CartProducts } from 'state/contexts/CartContext';
 import { useContext } from 'react';
 import {
   InfoReviewContent,
@@ -7,10 +7,14 @@ import {
 } from './InfoReviewStyle';
 import { ReviewItem } from './ReviewItem/ReviewItem';
 import { ReviewTitle } from './ReviewTitle/ReviewTitle';
-
-export function InfoReview() {
-  const {cart, setCart} = useContext(CartContext);
-
+interface Props  {
+  cart: CartProducts[];
+  setCart: (product:any)=>void
+  }
+  
+export function InfoReview({cart, setCart}:Props) {
+ 
+ 
   return (
     <InfoReviewTemplate>
       <>

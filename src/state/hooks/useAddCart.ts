@@ -1,26 +1,18 @@
-import { CartProducts } from 'state/contexts/CartContext';
-import { ProductscontextProps } from 'state/contexts/CartContext';
-import { updateValues } from 'utils/updateValue';
-
+import { useContext } from 'react';
+import { CartContext, CartProducts } from 'state/contexts/CartContext';
 
 export const useAddCart = () => {
- 
+  const { cart, setCart } = useContext(CartContext);
 
+  return async (newItem: CartProducts) => {
 
-  return (newItem: CartProducts,{cart, setCart}:ProductscontextProps) => {
-    return setCart(elementsInCart => {
-
-      const checkCart = elementsInCart.find((product) => newItem.id === product.id);
-      if (typeof checkCart !== 'undefined') {
-        const index = elementsInCart.indexOf(checkCart);
-        return [
-          ...elementsInCart.slice(0, index),
-          updateValues(checkCart, 'increase'),
-          ...elementsInCart.slice(index + 1),
-        ];
-      }
-
-      return [...elementsInCart, updateValues(newItem, 'increase')];
-    });
+    const data = await fetch('http://localhost:3000/api/postCart', {
+      method: 'POST',
+      body: JSON.stringify(newItem),
+      headers: {
+        'Content-Type': 'application/json',
+      },
+    }).then((response) => response.json());
+    //setCart(data!);
   };
 };

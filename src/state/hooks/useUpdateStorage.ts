@@ -1,10 +1,13 @@
 import { Items } from 'components/WindowShopper/Products';
+import { useContext } from 'react';
 import { CartProducts } from 'state/contexts/CartContext';
-import { ProductscontextProps } from 'state/contexts/StorageContext';
+import { ProductscontextProps, StorageContext } from 'state/contexts/StorageContext';
 import { updateValues } from 'utils/updateValue';
 
 export const useUpdateStorage = () => {
-  return (item: Items, {products, setProducts}: ProductscontextProps) => {
+  const { products, setProducts } = useContext(StorageContext);
+
+  return (item: Items) => {
     
     return setProducts && setProducts((beforeStateStorage :Items[]) => {
       const index = beforeStateStorage.findIndex(

@@ -9,9 +9,8 @@ import {
   RecomendationsVisualize,
 } from './DetailsStyle';
 
-import { useContext, useEffect, useState } from 'react';
-import { useRouter } from 'next/router';
-import { useFindProduct } from 'state/hooks/useFindProduct';
+import { useState } from 'react';
+
 import { SelectSizeButton } from '@/components/SelectSizeButton/SelectSizeButton';
 import {
   CartButtonDetails,
@@ -20,11 +19,13 @@ import {
 import { Banner } from '@/components/Banner/Banner';
 import Recomendations from '@/components/Recomendations';
 import { Items } from '@/components/WindowShopper/Products';
-import { GetServerSideProps, InferGetServerSidePropsType, InferGetStaticPropsType } from 'next';
+import { InferGetServerSidePropsType } from 'next';
 
-function DetailsProduct({ response }: InferGetServerSidePropsType<typeof getServerSideProps>) {
-  const [clickedProduct, setClickedProduct] = useState<Items>(response);  
-  
+function DetailsProduct({
+  response,
+}: InferGetServerSidePropsType<typeof getServerSideProps>) {
+  const [clickedProduct, setClickedProduct] = useState<Items>(response);
+
   return (
     <>
       <DetailsSection>
@@ -77,30 +78,28 @@ function DetailsProduct({ response }: InferGetServerSidePropsType<typeof getServ
   );
 }
 
-export const getServerSideProps = async (context: { params: { id: any; }; }) => {
-  const {id} = context.params
+export const getServerSideProps = async (context: { params: { id: any } }) => {
+  const { id } = context.params;
   if (!id) {
     return;
   }
-  const response: any = await 
-    fetch(`http://localhost:3000/api/getProductById/${id}`, {
+  const response: any = await fetch(
+    `http://localhost:3000/api/getProductById/${id}`,
+    {
       method: 'GET',
       headers: {
         'Content-Type': 'application/json',
       },
-    }).then((respostaDoServidor)=>{
-      return respostaDoServidor.json()
     }
-    )
-    
-    console.log(response)
+  ).then((serverResponse) => {
+    return serverResponse.json();
+  });
 
   return {
-    
     props: {
       response,
     },
   };
-}
+};
 
 export default DetailsProduct;

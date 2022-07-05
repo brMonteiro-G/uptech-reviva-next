@@ -1,6 +1,7 @@
-import data from '../../data.json';
+import data from '../../data/data.json';
 import type { NextApiRequest, NextApiResponse } from 'next'
 
 export default function handler (request:NextApiRequest, response: NextApiResponse){
-    response.status(200).json(data)
+    response.status(200).json({
+        ...data.products})
 }
