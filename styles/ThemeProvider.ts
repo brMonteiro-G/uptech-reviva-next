@@ -17,7 +17,7 @@ export const theme = {
       font_size_subtitle: '4em',
   
       font_family_page: "'Roboto', sans serif",
-  
+   
       font_weight_text: '300',
   
       font_weight_title: 'bold',

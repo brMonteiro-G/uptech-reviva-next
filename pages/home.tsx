@@ -36,7 +36,7 @@ export default function Home( { handledProductsResponse }: InferGetStaticPropsTy
       </ArticleSection>
     </Main>
     </PostProvider>
-    </StorageProvider>
+    </StorageProvider> 
     </>
   );
 }

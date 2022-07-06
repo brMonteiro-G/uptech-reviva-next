@@ -5,7 +5,7 @@ import { useSetStorage, useStorage } from '../StorageState';
 
 interface ProductsProviderProps {
   children: ReactNode,
-  handledProductsResponse:Items[]
+  handledProductsResponse:Items[] 
 }
 export interface ProductscontextProps {
   products?: Items[];

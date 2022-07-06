@@ -1,7 +1,7 @@
 import { Items } from '../WindowShopper/Products';
 import {
   DivBackgroundBag,
-  CartButton,
+  CartButton, 
   ShoppingCartButton,
 } from './ButtonStyle';
 

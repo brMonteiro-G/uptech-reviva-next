@@ -12,7 +12,7 @@ export const useAddCart = () => {
       headers: {
         'Content-Type': 'application/json',
       },
-    }).then((response) => response.json());
-    //setCart(data!);
+    }).then((response) => response.json()); 
+    setCart && setCart(data);
   };
 };

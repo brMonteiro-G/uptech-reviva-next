@@ -6,14 +6,14 @@ import { ProductReview } from '../src/cart/ProductReview/ProductReview';
 function Cart({
   serverResponseCart,
 }: InferGetServerSidePropsType<typeof getServerSideProps>) {
-  console.log(serverResponseCart);
+ 
 
   return (
     <>
       <CartProvider serverResponseCart={serverResponseCart}>
         <main>
           <h1>Minha sacola</h1>
-          <ProductReview />
+          <ProductReview /> 
         </main>
       </CartProvider>
     </>

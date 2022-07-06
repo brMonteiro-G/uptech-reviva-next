@@ -7,4 +7,4 @@ export default function handler (request:NextApiRequest, response: NextApiRespon
     response.status(200).json({
     ...data.products.find((product => product.id === id)),    
     })
-}
+} 
