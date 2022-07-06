@@ -10,7 +10,7 @@ setCart: (product:any)=>void
 export function BillingReview({cart, setCart}:Props ) {
 
   const total = cart.reduce(
-    (acc, currentValue) => (acc += (currentValue.price*currentValue.units_in_cart)),
+    (acc, currentValue) => (acc += (currentValue.price*currentValue.units_in_cart)), 
     0
   );
 

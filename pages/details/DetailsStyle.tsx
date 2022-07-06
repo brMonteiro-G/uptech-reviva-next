@@ -1,5 +1,4 @@
 import styled from 'styled-components';
-import { font_weight_text, tertiary_color } from 'utils/Variables';
 
 export const RecomendationsSection = styled.section`
   margin-bottom: 20px;
@@ -69,7 +68,7 @@ export const DetailsInfo = styled(DetailsSection)`
   flex-direction: column;
   width: 100%;
   text-align: left;
-  font-weight: ${font_weight_text};
+  font-weight: ${(props)=> props.theme.fonts.font_weight_text};
 
   h1,
   p {
@@ -132,12 +131,12 @@ export const DetailsButtonSize = styled.div`
   & input + label:before {
     border: none;
     cursor: pointer;
-    border: 2px solid ${tertiary_color};
+    border: 2px solid ${(props)=> props.theme.colors.tertiary_color};
     background: url() no-repeat center;
     background-size: contain;
   }
   & input:checked + label:before {
-    background-color: rgba(${tertiary_color}, 0.5);
+    background-color: rgba(${(props)=> props.theme.colors.tertiary_color}, 0.5);
     transform: scale(1.1);
     transition: all 0.5s;
   }

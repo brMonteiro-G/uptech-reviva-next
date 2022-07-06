@@ -1,6 +1,6 @@
-import { RecomendationsProducts } from "details/DetailsStyle";
 import { useContext } from "react";
 import { StorageContext } from "state/contexts/StorageContext";
+import { RecomendationsProducts } from "../../../pages/details/DetailsStyle";
 
 export default function Recomendations() {
     const { products, setProducts } = useContext(StorageContext);

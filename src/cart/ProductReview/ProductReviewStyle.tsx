@@ -1,5 +1,4 @@
 import styled from 'styled-components';
-import { tertiary_color } from 'utils/Variables';
 
 export const ReviewTemplate = styled.section`
   display: flex;
@@ -17,7 +16,7 @@ export const ReviewTemplate = styled.section`
 
 export const PaymentReview = styled.div`
   width: 20%;
-  background-color: ${tertiary_color};
+  background-color: ${(props)=> props.theme.colors.tertiary_color};
 `;
 
 export const ItemContent = styled.div`

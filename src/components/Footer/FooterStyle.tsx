@@ -1,15 +1,15 @@
+import { CartButtonDetails } from '@/components/Button/ButtonStyle';
 import styled from 'styled-components';
-import { font_weight_text, quaternary_color, tertiary_color } from 'utils/Variables';
 
 export const FooterTemplate = styled.footer`
-  background-color: ${quaternary_color};
+  background-color:${(props)=>props.theme.colors.quaternary_color};
 
   li {
     margin-top: 12px;
     font-size: calc($font-size-text * 1.1);
-    font-weight: ${font_weight_text};
+    font-weight: ${(props)=>props.theme.fonts.font_weight_text};
   }
-`; 
+`;  
 
 export const FooterInfos = styled.div`
   display: grid;
@@ -53,31 +53,21 @@ export const FooterNewsletter = styled(FooterInfos)`
     margin-right: 20px;
   }
 
-  button {
-    width: 160px;
-    height: 38px;
-    background-color: ${tertiary_color};
-    border: none;
-  }
-  button:hover {
-    color: white;
-    cursor: pointer;
-  }
 `;
 
-export const FooterIems = styled(FooterInfos)`
-  button {
-    width: 160px;
-    height: 38px;
-    background-color: ${tertiary_color};
-    border: none;
-  }
+export const NewsletterButton=styled(CartButtonDetails)`
+border-radius:4px;
+background-color:${props=>props.theme.colors.tertiary_color};
+width: 160px;
+height: 38px;
+border: none;
+&:hover{
+  color: black;
+  cursor: pointer;
+}
+`;
 
-  button:hover {
-    color: white;
-    cursor: pointer;
-  }
-
+export const FooterItems = styled(FooterInfos)`
   input {
     width: 280px;
     height: 32px;

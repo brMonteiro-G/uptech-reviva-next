@@ -1,4 +1,5 @@
-import { useRouter } from "next/router";
+import { useEffect } from 'react';
+import {useTheme } from 'styled-components'
 import DetailsProduct from "./[id]";
 
 export default function Details(){
@@ -6,6 +7,6 @@ export default function Details(){
   
 return(
 
-    <DetailsProduct > </DetailsProduct>
+    <DetailsProduct> </DetailsProduct>
 )
 }

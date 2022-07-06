@@ -1,6 +1,6 @@
 import { Dimensions } from '../Logo/LogoConfig';
 import { Logo } from '../Logo/Logo';
-import { Teste } from './FooterStyle';
+import { NewsletterButton, Teste } from './FooterStyle';
 import {
   FooterIcons,
   FooterInfos,
@@ -11,11 +11,19 @@ import { NavbarLink } from '../Navbar/NavbarStyle';
 import { contactsInfoList as contactsInfo } from 'utils/assets/contactsInfoList';
 import { iconsList as icons } from 'utils/assets/iconsList';
 import { linksList as pageLinks } from 'utils/assets/linksList';
+import styled from 'styled-components';
+
+const NewsletterSubscription = styled (()=>(
+  <div>
+    <input type="email" />
+    <NewsletterButton>ASSINAR JÁ</NewsletterButton>
+  </div>
+))``;
 
 export function Footer() {
   return (
     <FooterTemplate>
-      <Logo dimension={Dimensions.BIG} justify='right' />
+      <Logo dimension={Dimensions.BIG} justify='right' /> 
 
       <FooterInfos>
         <ul>
@@ -60,11 +68,7 @@ export function Footer() {
 
         <FooterNewsletter>
           <p>Assine nossa newsletter</p>
-          <div>
-            <input type='email' />
-
-            <button>ASSINAR JÁ</button>
-          </div>
+          <NewsletterSubscription/>
         </FooterNewsletter>
       </FooterInfos>
     </FooterTemplate>

@@ -1,0 +1,33 @@
+{
+  "products": [{
+    "name": "Macacão Feminino Alça Fina AK by Riachuelo",
+    "id": "7",
+    "url": "#",
+    "price": 99.9,
+    " description": "A Macacão Feminino Alça Fina Viscose Folhagem Verde AK by Riachuelo é a escolha certa para criar looks de verão com muito estilo! Confeccionada em malha de viscose, a peça é perfeita para encontros com as amigas e momentos de lazer! Combine com sandália para um visual confortável e descontraído! ",
+    "available_size": {
+      "Sizes.SMALL": "0",
+      "Sizes.MEDIUM": "0",
+      "Sizes.LARGE": "0"
+    },
+    "available_amount": "12",
+    "images": [
+      {
+        "url": "/images/imagem_8.1.jpg",
+        " description": "Macacão Feminino Alça Fina"
+      },
+      {
+        "url": "/images/imagem_8.2.jpg",
+        " description": "Macacão Feminino Alça Fina"
+      },
+      {
+        "url": "/images/imagem_8.3.jpg",
+        " description": "Macacão Feminino Alça Fina"
+      },
+      {
+        "url": "/images/imagem_8.4.jpg",
+        " description": "Macacão Feminino Alça Fina"
+      }
+    ]
+  }]
+}

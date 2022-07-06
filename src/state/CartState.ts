@@ -1,12 +1,13 @@
-import { useState } from 'react';
+import { Dispatch, SetStateAction, useState } from 'react';
 import { CartProducts } from './contexts/CartContext';
 
-export const useCartState = () => {
-  const [cart, _] = useState<CartProducts[]>([]);
+export const useCartState = (serverResponseCart:CartProducts[]) => {
+  const [cart, _] = useState<CartProducts[]>(serverResponseCart);
   return cart;
 };
 
-export const useSetCartState = () => {
-  const [_, setCart] = useState<CartProducts[]>([]);
+export const useSetCartState = (newFunctionOrElement?:SetStateAction<CartProducts[]>) => { 
+  let [_, setCart] = useState<CartProducts[]>([]);
+  setCart(newFunctionOrElement!);
   return setCart;
 };

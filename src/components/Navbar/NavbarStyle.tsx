@@ -1,17 +1,12 @@
 import  Link  from 'next/link';
 import styled from 'styled-components';
-import {
-  font_size_text,
-  font_weight_text,
-  quaternary_color,
-  tertiary_color,
-} from 'utils/Variables';
+
 
 export const NavbarLink = styled(Link)<{ children: string }>`
     text-decoration: none;
     color: black;
-    font-weight: ${font_weight_text};
-    font-size: ${font_size_text};
+    font-weight: ${(props)=> props.theme.fonts.font_weight_text};
+    font-size: ${(props)=> props.theme.fonts.font_size_text};
 }
 
 `;
@@ -24,8 +19,8 @@ export const NavbarTemplate = styled.div`
   border-top: 1px solid rgba(0, 0, 0, 0.1);
   background: linear-gradient(
     to bottom,
-    ${quaternary_color},
-    ${tertiary_color}
+    ${(props)=> props.theme.colors.quaternary_color},
+    ${(props)=> props.theme.colors.tertiary_color}
   );
   list-style: none;
   @media (max-width: 760px) {

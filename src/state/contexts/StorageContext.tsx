@@ -1,12 +1,11 @@
 import { Items } from 'components/WindowShopper/Products';
 import Inventory from 'data/Storage';
 import { createContext, ReactNode } from 'react';
-import { useCartState, useSetCartState } from '../CartState';
 import { useSetStorage, useStorage } from '../StorageState';
-import { CartProducts } from './CartContext';
 
 interface ProductsProviderProps {
-  children: ReactNode;
+  children: ReactNode,
+  handledProductsResponse:Items[] 
 }
 export interface ProductscontextProps {
   products?: Items[];
@@ -18,8 +17,8 @@ export const StorageContext = createContext<ProductscontextProps>({
 });
 
 StorageContext.displayName = 'Storage';
-export const StorageProvider = ({ children }: ProductsProviderProps) => {
-  const products = useStorage();
+export const StorageProvider = ({ children, handledProductsResponse }: ProductsProviderProps) => {
+  const products = useStorage(handledProductsResponse);
   const setProducts = useSetStorage();
 
   return (
